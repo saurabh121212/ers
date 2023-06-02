@@ -1,0 +1,24 @@
+APP=dev
+PORT=3231
+NODE_ENV=development
+APP_URL=http://13.234.116.27:3231/
+
+MAIL_HOST=smtp.1und1.de
+MAIL_PORT=465
+MAIL_SECURE=true
+MAIL_AUTH_USER=mailer.example@app.com
+MAIL_AUTH_PW=password
+MAIL_FROM_STRING="\"ERS Admin\" <admin@ers.io>"
+
+
+DB_DIALECT=mysql
+DB_HOST=ers-db.cgpzkvzqdhqu.ap-south-1.rds.amazonaws.com
+DB_PORT=3306
+DB_NAME=ers_db
+DB_USER=admin
+DB_PASSWORD=ers000DB
+
+EMAIL_SECRET=AAXeTUAx1gJXKguoJ4bjJ1K5d499ZXTTyo0L
+
+JWT_ENCRYPTION=26O3WT0nhyMkZx7H9E1LraoU22D2XAV7zmp1IEI5UCsiBTaT
+JWT_EXPIRATION=3600

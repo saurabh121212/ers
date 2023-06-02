@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "mocha spec",
+    "migrate": "npx sequelize-cli db:migrate",
+    "m": "npx sequelize-cli db:migrate",
+    "migrate-undo": "npx sequelize-cli db:migrate:undo",
+    "mu": "npx sequelize-cli db:migrate:undo",
+    "migration:create": "sequelize migration:create --name ",
+    "mc": "sequelize migration:create --name ",
+    "migration:generate": "npx sequelize-cli model:generate --name  ",
+    "seed:create": "npx sequelize-cli seed:generate --name",
+    "seed:run": "npx sequelize-cli db:seed:all",
+    "seed:undo": "npx sequelize-cli db:seed:undo"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "await-to-js": "^3.0.0",
+    "aws-sdk": "^2.1360.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.2.3",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.1",
+    "parse-error": "^0.2.0",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0",
+    "uuid": "^9.0.0"
+  }
+}
