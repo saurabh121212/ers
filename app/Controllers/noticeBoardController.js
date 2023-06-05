@@ -1,8 +1,8 @@
 
-
 const {noticeBoard} = require('models')
-const BaseRepo = require('app/Repositories/baseRepository');
+const BaseRepo = require('app/Repositories/BaseRepository');
 const {NOTICE_BOARD_TYPES} = require('app/Constants/constant');
+
 
 module.exports = {
     addNoticeBoard,

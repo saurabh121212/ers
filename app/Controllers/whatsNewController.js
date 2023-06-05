@@ -27,7 +27,7 @@ async function updateWhateNew(req, res, next) {
   console.log(id)
   if (!id) {
     return next({ message: "Missing ID", status: 400 });
-  }
+  }https://so.city/delhi/article/4-thrilling-places-to-challenge-your-squad-to-a-round-of-go-karting-in-delhi
   try {
     await BaseRepo.baseUpdate(whatsNew, { id }, req.body);
     res.data = { message: "successfully updated" }
