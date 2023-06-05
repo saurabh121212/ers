@@ -1,7 +1,7 @@
 
 
 const {recetlyApproved} = require('models')
-const BaseRepo = require('app/Repositories/baseRepository');
+const BaseRepo = require('app/Repositories/BaseRepository');
 const {RECENTLY_APPROVED_TYPES} = require('app/Constants/constant');
 
 module.exports = {
