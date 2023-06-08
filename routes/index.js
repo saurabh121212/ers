@@ -23,6 +23,7 @@ const recentlyApprovedRouter = require('./recentlyApproved')
 const userFeedbackRouter = require('./userFeedback')
 
 const texItemCodesRouter = require('./textIteamCode')
+const FAQRouter = require('./faq')
 
 
 
@@ -51,6 +52,8 @@ router.use('/noticeBoard',noticeBoardRouter)
 router.use('/recentlyApproved',recentlyApprovedRouter)
 router.use('/userFeedback',userFeedbackRouter)
 router.use('/textIteamCode',texItemCodesRouter)
+router.use('/faq',FAQRouter)
+
 
 
 

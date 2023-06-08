@@ -31,9 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         fileUrl:{
             type:DataTypes.TEXT,
             allowNull:false,
-            
-
-
        },
 
     },

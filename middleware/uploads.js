@@ -12,7 +12,6 @@ const storeDestination = {
     'newsImage': "news-images/",
     'csrImage': "csr-images/",
     'formfile':"form-files/"
-
 }
 
 module.exports =  (fileType, fileSize, filePath) => {

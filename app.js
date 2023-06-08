@@ -113,7 +113,6 @@ const startApp = function () {
 
 // SETTING DB
 require('bootstrap/database')(eventEmitter);
-
 eventEmitter.once('db-connection-established', startApp);
 
 module.exports = app;
