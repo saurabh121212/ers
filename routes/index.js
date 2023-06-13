@@ -53,7 +53,7 @@ router.use('/recentlyApproved',recentlyApprovedRouter)
 router.use('/userFeedback',userFeedbackRouter)
 router.use('/textIteamCode',texItemCodesRouter)
 router.use('/faq',FAQRouter)
-
+router.use('/news',newsRouter)
 
 
 

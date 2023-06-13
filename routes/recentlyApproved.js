@@ -7,6 +7,4 @@ router.get('/', recentlyApprovedController.listRecetlyApproved);
 router.put('/:id',recentlyApprovedController.updateRecetlyApproved)
 router.delete('/:id',recentlyApprovedController.removeRecetlyApproved);
 
-
-
 module.exports = router;
