@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
         },
         description: {
-            type: DataTypes.STRING(10000)
+            type: DataTypes.TEXT('medium'),
         },
         url: {
             type: DataTypes.TEXT,
