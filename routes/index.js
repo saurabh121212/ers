@@ -24,6 +24,8 @@ const userFeedbackRouter = require('./userFeedback')
 
 const texItemCodesRouter = require('./textIteamCode')
 const FAQRouter = require('./faq')
+const menuServicesRouter = require('./menuService')
+
 
 
 
@@ -54,7 +56,7 @@ router.use('/userFeedback',userFeedbackRouter)
 router.use('/textIteamCode',texItemCodesRouter)
 router.use('/faq',FAQRouter)
 router.use('/news',newsRouter)
-
+router.use('/menuService',menuServicesRouter)
 
 
 module.exports = router;
