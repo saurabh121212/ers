@@ -1,0 +1,2 @@
+1. Create folders for images 
+2. change APP_URL for image path

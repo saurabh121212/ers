@@ -3,11 +3,15 @@
 
 module.exports = (sequelize, DataTypes) => {
     const Model = sequelize.define('corporateResponsibility', {
-        id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
+        id: {
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            primaryKey: true, 
+            autoIncrement: true
+        },
         name: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(200)
            // unique: true,
-            
         },
         description: {
             type: DataTypes.TEXT,

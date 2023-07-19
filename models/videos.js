@@ -3,12 +3,17 @@
 
 module.exports = (sequelize, DataTypes) => {
     const VideoModel = sequelize.define('videos', {
-        id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
+        id: {
+            type: DataTypes.BIGINT,
+            allowNull: false, 
+            primaryKey: true, 
+            autoIncrement: true
+        },
         name: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(300),
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(700),
         },
         url: {
             type: DataTypes.TEXT,

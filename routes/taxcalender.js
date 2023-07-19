@@ -7,5 +7,4 @@ router.get('/', taxcontroller.getTaxDetail);
 router.put('/:id',taxcontroller.updateTaxDetail);
 router.delete('/:id',taxcontroller.deleteTaxDetail)
 
-
 module.exports = router;

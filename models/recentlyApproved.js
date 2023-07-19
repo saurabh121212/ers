@@ -14,21 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     const recetlyApprovedModel = sequelize.define('recetlyApproved', {
         id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         type: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(300),
             enum: RECENTLY_APPROVED_TYPES,
             allowNull: false
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(500),
             allowNull: false
            
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(500),
             
         },
         documentName: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(500),
             allowNull: false
             
         },

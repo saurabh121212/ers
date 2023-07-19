@@ -12,25 +12,26 @@ const isValidUrl = (value) => {
 
 module.exports = (sequelize, DataTypes) => {
     const noticeBoardModel = sequelize.define('noticeBoard', {
-        id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
+        id: {
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         type: {
-            type: DataTypes.STRING,
-            enum: NOTICE_BOARD_TYPES,
+            type: DataTypes.STRING(200),
             allowNull: false
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(300),
             allowNull: false
-           
         },
         description: {
             type: DataTypes.TEXT,
-            
         },
         documentName: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(300),
             allowNull: false
-            
         },
         documentUrl: {
             type: DataTypes.STRING,

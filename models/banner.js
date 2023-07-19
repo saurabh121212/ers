@@ -3,7 +3,7 @@
 module.exports = (sequelize, DataTypes) => {
   const ImageBannerModel = sequelize.define('bannerImages', {
     imageName: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(200),
       allowNull: false
     },
     link: {
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(200),
       allowNull: false
     },
     imageurl: {

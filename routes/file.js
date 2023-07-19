@@ -10,8 +10,11 @@ router.post('/csr-image', uploader("image", 5, "csrImage").single("files"), File
 
 router.post('/news-image', uploader("image", 5, "newsImage").array("file",4), FileController.uploadMultipleFiles);
 
-router.post('/form-files', uploader("document", 5, "formImage").single("file"), FileController.uploadFile);
+router.post('/form-files', uploader("document", 5, "formfile").single("file"), FileController.uploadFile);
 
+router.post('/noticeboard-files', uploader("document", 5, "noticeboard").single("file"), FileController.uploadFile);
+
+router.post('/recentapproved-files', uploader("document", 5, "recentapproved").single("file"), FileController.uploadFile);
 
 
 module.exports = router;

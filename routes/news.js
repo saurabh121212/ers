@@ -7,5 +7,4 @@ router.get('/', newsController.listNews);
 router.put('/:id',newsController.updateNews)
 router.delete('/:id',newsController.removeNews);
 
-
 module.exports = router;

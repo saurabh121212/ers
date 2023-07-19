@@ -3,14 +3,16 @@
   
 module.exports = (sequelize, DataTypes) => {
     const formModel = sequelize.define('form', {
-        formName: {type: DataTypes.STRING(20),
-                    allowNull: false},
+        formName: {
+            type: DataTypes.STRING(300),
+            allowNull: false
+        },
         category: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(200),
             allowNull: false,
         },
         fileSize:{
-              type:DataTypes.STRING,
+              type:DataTypes.STRING(100),
               allowNull:false,
         },
         fileType:{
@@ -20,16 +22,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         uploadDate: {
             type: DataTypes.DATE,
-            allowNull: false,
         },
 
         description:{
-            type:DataTypes.TEXT,
+            type:DataTypes.STRING(500),
             allowNull:true
         },
 
         fileUrl:{
-            type:DataTypes.TEXT,
+            type:DataTypes.STRING(500),
             allowNull:false,
        },
 

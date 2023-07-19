@@ -11,7 +11,9 @@ const storeDestination = {
     'galleryImage': "gallery-images/",
     'newsImage': "news-images/",
     'csrImage': "csr-images/",
-    'formfile':"form-files/"
+    'formfile':"form-files/",
+    'noticeboard':"noticeboard-files/",
+    'recentapproved':"recentapproved-files/"
 }
 
 module.exports =  (fileType, fileSize, filePath) => {

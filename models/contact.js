@@ -2,18 +2,20 @@
 
 module.exports = (sequelize, DataTypes) => {
     const contactModel = sequelize.define('contact', {
-        branchName: {type: DataTypes.STRING(20),
-                    allowNull: false},
+        branchName: {
+            type: DataTypes.STRING(200),
+            allowNull: false
+        },
         branchLocation: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(200),
             allowNull: false,
         },
         branchCity:{
-              type:DataTypes.STRING,
+              type:DataTypes.STRING(100),
               allowNull:false,
         },
         branchState:{
-             type:DataTypes.STRING(50),
+             type:DataTypes.STRING(100),
              allowNull:false,
 
         },
@@ -23,22 +25,18 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         lat:{
-            type:DataTypes.STRING,
+            type:DataTypes.DOUBLE,
             allowNull:true
         },
 
         long:{
-            type:DataTypes.STRING(20),
+            type:DataTypes.DOUBLE,
             allowNull:true,
-
        },
-
        isHeadQuater:{
         type:DataTypes.BOOLEAN,
         allowNull:false
-
        }
-
     },
     {
         paranoid: true,
