@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    const publicationModel = sequelize.define('publications', {
+    const tenderModel = sequelize.define('tenders', {
         id: 
         { 
             type: DataTypes.BIGINT, 
@@ -9,19 +9,19 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true, 
             autoIncrement: true 
         },
-        type: {
-            type: DataTypes.STRING(200),
-            allowNull: false
-        },
-        description: {
-            type: DataTypes.TEXT,
-        },
-        documentName: {
+        tenderName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        coverPhoto: {
-            type: DataTypes.STRING,
+        deadline: {
+            type: DataTypes.DATE,
+        },
+        publishedDate: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        reference: {
+            type: DataTypes.STRING(300),
             allowNull: false
         },
         documentUrl: {
@@ -30,5 +30,5 @@ module.exports = (sequelize, DataTypes) => {
           }
     });
 
-    return publicationModel;
+    return tenderModel;
 };

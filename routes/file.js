@@ -16,6 +16,13 @@ router.post('/noticeboard-files', uploader("document", 5, "noticeboard").single(
 
 router.post('/recentapproved-files', uploader("document", 5, "recentapproved").single("file"), FileController.uploadFile);
 
+router.post('/publication-image', uploader("image", 2, "publications").single("file"), FileController.uploadFile);
+
+router.post('/publication-files', uploader("document", 2, "publications").single("file"), FileController.uploadFile);
+
+router.post('/tender-files', uploader("document", 2, "tender").single("file"), FileController.uploadFile);
+
+
 
 module.exports = router;
 

@@ -19,6 +19,9 @@ const taxRouter = require('./taxcalender')
 const csrRouter = require('./csr')
 const whateNewRouter = require('./whatNew')
 const noticeBoardRouter = require('./noticeBoard')
+const publicationsRouter = require('./publication')
+const tenderRouter = require('./tender')
+
 const recentlyApprovedRouter = require('./recentlyApproved')
 const userFeedbackRouter = require('./userFeedback')
 
@@ -57,6 +60,7 @@ router.use('/textIteamCode',texItemCodesRouter)
 router.use('/faq',FAQRouter)
 router.use('/news',newsRouter)
 router.use('/menuService',menuServicesRouter)
-
+router.use('/publication',publicationsRouter)
+router.use('/tender',tenderRouter)
 
 module.exports = router;

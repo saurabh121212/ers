@@ -13,7 +13,9 @@ const storeDestination = {
     'csrImage': "csr-images/",
     'formfile':"form-files/",
     'noticeboard':"noticeboard-files/",
-    'recentapproved':"recentapproved-files/"
+    'recentapproved':"recentapproved-files/",
+    'publications':"publication-files/",
+    'tender':"tender-files/"
 }
 
 module.exports =  (fileType, fileSize, filePath) => {
