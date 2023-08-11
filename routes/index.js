@@ -22,6 +22,10 @@ const noticeBoardRouter = require('./noticeBoard')
 const publicationsRouter = require('./publication')
 const tenderRouter = require('./tender')
 
+const practiceNoteRouter = require('./practiceNote')
+const publicMeetingRouter = require('./publicMeeting')
+
+
 const recentlyApprovedRouter = require('./recentlyApproved')
 const userFeedbackRouter = require('./userFeedback')
 
@@ -62,5 +66,7 @@ router.use('/news',newsRouter)
 router.use('/menuService',menuServicesRouter)
 router.use('/publication',publicationsRouter)
 router.use('/tender',tenderRouter)
+router.use('/practiceNote',practiceNoteRouter)
+router.use('/publicMeeting',publicMeetingRouter)
 
 module.exports = router;

@@ -15,7 +15,10 @@ const storeDestination = {
     'noticeboard':"noticeboard-files/",
     'recentapproved':"recentapproved-files/",
     'publications':"publication-files/",
-    'tender':"tender-files/"
+    'tender':"tender-files/",
+    'practicenote':"practicenote-files/",
+    'publicnotice':"publicnotic-image/"
+
 }
 
 module.exports =  (fileType, fileSize, filePath) => {

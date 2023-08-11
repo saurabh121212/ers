@@ -1,6 +1,6 @@
 'use strict';
 
-const {NOTICE_BOARD_TYPES} = require('app/Constants/constant');
+const {RECENTLY_APPROVED_TYPES} = require('app/Constants/constant');
 
 const isValidUrl = (value) => {
     const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i || /^(http?|ftp):\/\/[^\s/$.?#].[^\s]*$/i ;
@@ -11,29 +11,27 @@ const isValidUrl = (value) => {
 
 
 module.exports = (sequelize, DataTypes) => {
-    const noticeBoardModel = sequelize.define('noticeBoard', {
+    const practiceNoteModel = sequelize.define('practiceNote', {
         id: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            primaryKey: true,
+            type: DataTypes.BIGINT, 
+            allowNull: false, 
+            primaryKey: true, 
             autoIncrement: true
         },
-        name: {
+        type: {
             type: DataTypes.STRING(300),
+            enum: RECENTLY_APPROVED_TYPES,
             allowNull: false
         },
-        description: {
-            type: DataTypes.TEXT,
-        },
-        date: {
-            type: DataTypes.DATE,
-        },
-        notice: {
-            type: DataTypes.TEXT,
+        name: {
+            type: DataTypes.STRING(500),
+            allowNull: false
+           
         },
         documentName: {
-            type: DataTypes.STRING(300),
+            type: DataTypes.STRING(500),
             allowNull: false
+            
         },
         documentUrl: {
             type: DataTypes.STRING,
@@ -45,5 +43,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    return noticeBoardModel;
+    return practiceNoteModel;
 };

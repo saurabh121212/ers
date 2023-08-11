@@ -13,16 +13,15 @@ module.exports = {
 
 //create
 async function addNoticeBoard(req, res, next) {
-    const {type, name,description,documentName, documentUrl } = req.body;
-    if (!type) {
-        return next({ message: "Missing Notice Board type", status: 400 });
-      }
-    if (!NOTICE_BOARD_TYPES.includes(type)) {
-        return res.status(400).json({message: 'Invalid type'});
-    }
-    
+    const {name,description,date,notice,documentName, documentUrl } = req.body;
     if (!name) {
-      return next({ message: "Missing Notice Board name", status: 400 });
+      return next({ message: "Missing Public Notice name", status: 400 });
+    }
+    if (!date) {
+      return next({ message: "Missing Public Notice date", status: 400 });
+    }
+    if (!notice) {
+      return next({ message: "Missing Public Notice notice", status: 400 });
     }
     if (!documentName) {
         return next({ message: "Missing documentName", status: 400 });
@@ -31,7 +30,7 @@ async function addNoticeBoard(req, res, next) {
       return next({ message: "Missing url", status: 400 });
     }
     try {
-      const  noticeBoards= await BaseRepo.baseCreate(noticeBoard, {type, name, description, documentName, documentUrl });
+      const  noticeBoards= await BaseRepo.baseCreate(noticeBoard, {name,date,notice, description, documentName, documentUrl });
       res.data = noticeBoards;
       return next();
     } catch (err) {
@@ -45,12 +44,18 @@ async function addNoticeBoard(req, res, next) {
     const { id } = req.params;
   console.log(id)
     if (!id) {
-      return next({ message: "Missing Notice Board ID", status: 400 });
+      return next({ message: "Missing Public Notice ID", status: 400 });
     }
   
     const updateData = {};
     if (req.body.name) {
       updateData.name = req.body.name;
+    }
+    if (req.body.date) {
+      updateData.date = req.body.date;
+    }
+    if (req.body.notice) {
+      updateData.notice = req.body.notice;
     }
     if (req.body.description) {
       updateData.description = req.body.description;
@@ -93,7 +98,7 @@ async function removeNoticeBoard(req, res, next) {
     try {
       //check if project exist
       const noticeBoards = await BaseRepo.baseDelete(noticeBoard, {id: req.params.id });
-      if (!noticeBoards) return next({ message: "No Notice Board found", status: 400 });
+      if (!noticeBoards) return next({ message: "No Public Notice found", status: 400 });
   
       res.data = { message: "Notice Board removed successfully", status: 200 };
       return next();

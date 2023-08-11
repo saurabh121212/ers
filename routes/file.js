@@ -22,7 +22,9 @@ router.post('/publication-files', uploader("document", 2, "publications").single
 
 router.post('/tender-files', uploader("document", 2, "tender").single("file"), FileController.uploadFile);
 
+router.post('/practicenote-files', uploader("document", 5, "practicenote").single("file"), FileController.uploadFile);
 
+router.post('/publicnotic-image', uploader("image", 5, "publicnotice").array("file",4), FileController.uploadMultipleFiles);
 
 module.exports = router;
 
