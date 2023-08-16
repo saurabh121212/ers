@@ -47,6 +47,9 @@ async function addTender(req, res, next) {
     if (req.body.documentUrl) {
       updateData.documentUrl = req.body.documentUrl;
     }
+    if (req.body.reference) {
+      updateData.reference = req.body.reference;
+    }
   
     try {
       await BaseRepo.baseUpdate(tenders, { id }, updateData);
