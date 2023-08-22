@@ -6,7 +6,7 @@ router.post('/banner-image', uploader("image", 5, "bannerImage").single("file"),
 
 router.post('/gallery-image', uploader("image", 5, "galleryImage").array("file",15), FileController.uploadMultipleFiles);
 
-router.post('/csr-image', uploader("image", 5, "csrImage").single("files"), FileController.uploadFile);
+router.post('/csr-image', uploader("image", 5, "csrImage").single("file"), FileController.uploadFile);
 
 router.post('/news-image', uploader("image", 5, "newsImage").array("file",4), FileController.uploadMultipleFiles);
 
@@ -25,6 +25,8 @@ router.post('/tender-files', uploader("document", 2, "tender").single("file"), F
 router.post('/practicenote-files', uploader("document", 5, "practicenote").single("file"), FileController.uploadFile);
 
 router.post('/publicnotic-image', uploader("image", 5, "publicnotice").array("file",4), FileController.uploadMultipleFiles);
+
+router.post('/whats-new-files', uploader("document", 2, "whatsnew").single("file"), FileController.uploadFile);
 
 module.exports = router;
 

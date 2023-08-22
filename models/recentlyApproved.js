@@ -10,12 +10,12 @@ const isValidUrl = (value) => {
   };
 
 
+
 module.exports = (sequelize, DataTypes) => {
     const recetlyApprovedModel = sequelize.define('recetlyApproved', {
         id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         type: {
             type: DataTypes.STRING(300),
-            enum: RECENTLY_APPROVED_TYPES,
             allowNull: false
         },
         name: {

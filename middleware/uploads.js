@@ -17,7 +17,9 @@ const storeDestination = {
     'publications':"publication-files/",
     'tender':"tender-files/",
     'practicenote':"practicenote-files/",
-    'publicnotice':"publicnotic-image/"
+    'publicnotice':"publicnotic-image/",
+    'whatsnew':"whatsnew-file/"
+
 
 }
 
