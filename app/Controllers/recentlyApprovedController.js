@@ -2,7 +2,7 @@
 
 const {recetlyApproved} = require('models')
 const BaseRepo = require('app/Repositories/BaseRepository');
-const {RECENTLY_APPROVED_TYPES} = require('app/Constants/constant');
+//const {RECENTLY_APPROVED_TYPES} = require('app/Constants/constant');
 
 module.exports = {
     addRecetlyApproved,
@@ -17,9 +17,9 @@ async function addRecetlyApproved(req, res, next) {
     if (!type) {
         return next({ message: "Missing Recetly Approved type", status: 400 });
       }
-    if (!RECENTLY_APPROVED_TYPES.includes(type)) {
-        return res.status(400).json({message: 'Invalid type'});
-    }
+    // if (!RECENTLY_APPROVED_TYPES.includes(type)) {
+    //     return res.status(400).json({message: 'Invalid type'});
+    // }
     
     if (!name) {
       return next({ message: "Missing Recetly Approved name", status: 400 });
