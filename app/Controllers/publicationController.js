@@ -35,6 +35,9 @@ async function addPublication(req, res, next) {
     }
   
     const updateData = {};
+    if (req.body.type) {
+      updateData.type = req.body.type;
+    }
     if (req.body.name) {
       updateData.name = req.body.name;
     }
@@ -46,6 +49,9 @@ async function addPublication(req, res, next) {
     }
     if (req.body.documentUrl) {
       updateData.documentUrl = req.body.documentUrl;
+    }
+    if (req.body.coverPhoto) {
+      updateData.coverPhoto = req.body.coverPhoto;
     }
   
     try {
