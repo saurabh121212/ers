@@ -17,10 +17,8 @@ const storeDestination = {
     'publications':"publication-files/",
     'tender':"tender-files/",
     'practicenote':"practicenote-files/",
-    'publicnotice':"publicnotic-image/",
+    'publicmeeting':"publicmeeting-image/",
     'whatsnew':"whatsnew-file/"
-
-
 }
 
 module.exports =  (fileType, fileSize, filePath) => {

@@ -44,6 +44,9 @@ async function addpracticeNote(req, res, next) {
     }
   
     const updateData = {};
+    if (req.body.type) {
+      updateData.type = req.body.type;
+    }
     if (req.body.name) {
       updateData.name = req.body.name;
     }

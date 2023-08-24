@@ -5,7 +5,8 @@ const BaseRepo = require('app/Repositories/BaseRepository');
 module.exports = {
     addTextItemCode,
     listTextItemCode,
-    removeTextItemCode
+    removeTextItemCode,
+    updateTextItemCode
   }
 
 //create
@@ -54,3 +55,19 @@ async function removeTextItemCode(req, res, next) {
       return next(err);
     }
   }
+
+  //update
+async function updateTextItemCode(req, res, next) {
+  const { id } = req.params;
+  console.log(id)
+  if (!id) {
+    return next({ message: "Missing ID", status: 400 });
+  }
+  try {
+    await BaseRepo.baseUpdate(textitemcode, { id }, req.body);
+    res.data = { message: "successfully updated" }
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}

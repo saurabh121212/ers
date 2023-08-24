@@ -24,7 +24,7 @@ router.post('/tender-files', uploader("document", 2, "tender").single("file"), F
 
 router.post('/practicenote-files', uploader("document", 5, "practicenote").single("file"), FileController.uploadFile);
 
-router.post('/publicnotic-image', uploader("image", 5, "publicnotice").array("file",4), FileController.uploadMultipleFiles);
+router.post('/publicmeeting-image', uploader("image", 5, "publicmeeting").array("file",4), FileController.uploadMultipleFiles);
 
 router.post('/whats-new-files', uploader("document", 2, "whatsnew").single("file"), FileController.uploadFile);
 
