@@ -1,4 +1,5 @@
-'use strict';
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
     baseCreate: create,
@@ -86,7 +87,7 @@ function list(modal, params) {
     }
 
     if (withPagination) {
-        return modal.findAndCountAll(query);
+            return modal.findAndCountAll(query);
     } else {
         return modal.findAll(query);
     }

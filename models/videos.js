@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING(700),
         },
+        yearofupload: {
+            type: DataTypes.STRING(100),
+        },
         url: {
             type: DataTypes.TEXT,
             allowNull: false,

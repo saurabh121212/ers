@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         groupName: {
-            type: DataTypes.STRING(200)
+            type: DataTypes.STRING(300)
         },
         imageName: {
-            type: DataTypes.STRING(200)
+            type: DataTypes.STRING(300)
         },
         url: {
             type: DataTypes.TEXT,

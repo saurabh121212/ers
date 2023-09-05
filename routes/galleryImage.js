@@ -4,6 +4,7 @@ const galleryImageController = require('../app/Controllers/galleryImagesControll
 // This web-service is use for Image Gallery 
 router.post('/', galleryImageController.addGalleryImages);
 router.get('/', galleryImageController.listGalleryImages);
+router.get('/web', galleryImageController.listGalleryImagesAccordingToWebsite);
 router.delete('/:id',galleryImageController.removeGalleryImages);
 
 module.exports = router;
