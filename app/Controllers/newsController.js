@@ -7,7 +7,8 @@ module.exports = {
   addNews,
   listNews,
   removeNews,
-  updateNews
+  updateNews,
+  singleNewsDetailById
 }
 
 //create
@@ -60,6 +61,24 @@ async function updateNews(req, res, next) {
   }
 }
 
+
+async function singleNewsDetailById(req, res, next) {
+  const params = {
+    searchParams: {},
+    limit: req.limit,
+    offset: req.skip,
+    id: req.params.id
+  }
+
+  console.log("idis ",params.id)
+  try {
+    const inNews = await BaseRepo.baseFindById(news, params);
+    res.data = inNews;
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}
 
 
 

@@ -60,7 +60,6 @@ async function listVideosAccordingToWebsite(req, res, next) {
   }
 }
 
-
 //delete
 async function removeVideo(req, res, next) {
   if (!req.params.id)

@@ -9,7 +9,9 @@ module.exports = {
     baseUpdate: update,
     baseDelete: deleteEntry,
     baseRestore: baseRestore,
-    baseCount: count
+    baseCount: count,
+    baseFindById: findById,
+
 };
 
 function create(modal, data) {
@@ -23,6 +25,17 @@ function bulkCreate(modal, data) {
 function count(modal, searchParams) {
     return modal.count({ where: searchParams });
 }
+
+
+function findById(modal, params) {
+    return modal.findOne({
+        where: {
+            id: params.id
+        }
+    });
+}
+
+
 
 function detail(modal, params) {
     const query = {
