@@ -5,7 +5,8 @@ module.exports = {
     addPublicMeeting,
     listPublicMeeting,
     updatePublicMeeting,
-    removePublicMeeting
+    removePublicMeeting,
+    singlePublicMeetingDetail
 }
 
 //create
@@ -51,6 +52,23 @@ async function updatePublicMeeting(req, res, next) {
 
   try {
     await BaseRepo.baseUpdate(publicmeeting, { id }, updateData);
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}
+
+
+async function singlePublicMeetingDetail(req, res, next) {
+  const params = {
+    searchParams: {},
+    limit: req.limit,
+    offset: req.skip,
+    id: req.params.id
+  }
+  try {
+    const publicMeetings = await BaseRepo.baseFindById(publicmeeting, params);
+    res.data = publicMeetings;
     return next();
   } catch (err) {
     return next(err);
