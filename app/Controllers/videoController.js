@@ -11,7 +11,7 @@ module.exports = {
 
 //create
 async function addVideo(req, res, next) {
-  const { name, description, url, uploadDate,yearofupload } = req.body;
+  const { name, description, url, uploadDate, yearofupload } = req.body;
   console.log(videos)
   if (!name) {
     return next({ message: "Missing videos name", status: 400 });
@@ -22,7 +22,7 @@ async function addVideo(req, res, next) {
   }
 
   try {
-    const video = await BaseRepo.baseCreate(videos, { name, description, url, uploadDate,yearofupload });
+    const video = await BaseRepo.baseCreate(videos, { name, description, url, uploadDate, yearofupload });
     res.data = video;
     return next();
     //   return video.toJSON();
@@ -52,7 +52,9 @@ async function listVideosAccordingToWebsite(req, res, next) {
   }
   try {
     const videoList = await BaseRepo.baseList(videos, params);
-    let data = await groupBy(videoList, 'yearofupload')
+    //    let data = await groupBy(videoList, 'yearofupload')
+    let data = await videoListingWeb(videoList)
+    console.log("Data ", data);
     res.data = data;
     return next();
   } catch (err) {
@@ -93,3 +95,43 @@ var groupBy = async function (videoList, key) {
   //console.log(jsonArraytoRetun);
   return jsonArraytoRetun;
 };
+
+
+
+async function videoListingWeb(videoList) {
+  let originalData = [];
+
+  for (let i = 0; i < videoList.length; i++) {
+    originalData.push(videoList[i].dataValues);
+  }
+
+  let groupedVideos = {};
+
+  // Step 2: Loop through each video
+  for (let video of originalData) {
+    //console.log(originalData);
+    // Step 3: Check and group
+    if (!groupedVideos[video.yearofupload]) {
+      groupedVideos[video.yearofupload] = [];
+    }
+    groupedVideos[video.yearofupload].push(video);
+  }
+
+  // Step 4: Convert to the desired format
+  let resultData = {
+    yearwisearray: []
+  };
+
+  for (let year in groupedVideos) {
+    resultData.yearwisearray.push({
+      yearofupload: year,
+      video: groupedVideos[year]
+    });
+  }
+
+  return resultData;
+
+}
+
+
+
