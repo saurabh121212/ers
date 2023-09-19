@@ -18,7 +18,9 @@ const storeDestination = {
     'tender':"tender-files/",
     'practicenote':"practicenote-files/",
     'publicmeeting':"publicmeeting-image/",
-    'whatsnew':"whatsnew-file/"
+    'whatsnew':"whatsnew-file/",
+    'aboutus':"about-team-image/",
+
 }
 
 module.exports =  (fileType, fileSize, filePath) => {

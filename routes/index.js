@@ -24,6 +24,8 @@ const tenderRouter = require('./tender')
 
 const practiceNoteRouter = require('./practiceNote')
 const publicMeetingRouter = require('./publicMeeting')
+const aboutusRouter = require('./aboutus')
+
 
 
 const recentlyApprovedRouter = require('./recentlyApproved')
@@ -68,5 +70,7 @@ router.use('/publication',publicationsRouter)
 router.use('/tender',tenderRouter)
 router.use('/practiceNote',practiceNoteRouter)
 router.use('/publicMeeting',publicMeetingRouter)
+router.use('/aboutus',aboutusRouter)
+
 
 module.exports = router;

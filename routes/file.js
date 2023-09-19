@@ -28,6 +28,9 @@ router.post('/publicmeeting-image', uploader("image", 5, "publicmeeting").array(
 
 router.post('/whats-new-files', uploader("document", 2, "whatsnew").single("file"), FileController.uploadFile);
 
+router.post('/about-team-image', uploader("image", 5, "aboutus").array("file",1), FileController.uploadMultipleFiles);
+
+
 module.exports = router;
 
 
