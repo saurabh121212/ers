@@ -10,7 +10,7 @@ module.exports.to = async (promise) =>
 
   return [null, res];
 };
-module.exports.generateJWT =  function(payload, time = "200d") {
+module.exports.generateJWT =  function(payload, time = "1d") {
   const options = {      
       expiresIn: time
   }

@@ -11,7 +11,7 @@ module.exports = {
     baseRestore: baseRestore,
     baseCount: count,
     baseFindById: findById,
-
+    baseFindByEmail: findByEmail,
 };
 
 function create(modal, data) {
@@ -35,6 +35,14 @@ function findById(modal, params) {
     });
 }
 
+function findByEmail(modal, params) {
+    console.log("emailid  ", params, " modal ", modal);
+    return modal.findOne({
+        where: {
+            email: params
+        }
+    });
+}
 
 
 function detail(modal, params) {
