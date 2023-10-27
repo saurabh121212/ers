@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
           //  validate: {isEmail: {msg: "Email is invalid."}}
         },
-        password: DataTypes.STRING(100),
+        password: DataTypes.STRING(400),
     }, {
         paranoid: true,
         timestamps: true

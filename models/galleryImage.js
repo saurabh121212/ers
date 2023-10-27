@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     const galleryModel = sequelize.define('galleryImages', {
         id: {
             type: DataTypes.BIGINT,
-            allowNull: false, 
-            primaryKey: true, 
+            allowNull: false,
+            primaryKey: true,
             autoIncrement: true
         },
         groupName: {
@@ -24,3 +24,4 @@ module.exports = (sequelize, DataTypes) => {
 
     return galleryModel;
 };
+
