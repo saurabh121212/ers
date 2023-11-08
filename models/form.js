@@ -3,6 +3,7 @@
   
 module.exports = (sequelize, DataTypes) => {
     const formModel = sequelize.define('form', {
+        id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         formName: {
             type: DataTypes.STRING(300),
             allowNull: false
