@@ -23,9 +23,11 @@ async function GetFormDetail(req, res, next) {
   try {
     let searchParams = {}
     if (category) {
-      searchParams = { category }
+      searchParams = { category ,
+      order:[["id","DESC"]]
+      }
     }
-    const GetForm = await BaseRepo.baseList(form, { searchParams });
+    const GetForm = await BaseRepo.baseList(form, searchParams );
     res.data = GetForm;
     return next();
   } catch (err) {
