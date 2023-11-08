@@ -21,13 +21,16 @@ async function CreateFormTable(req, res, next) {
 async function GetFormDetail(req, res, next) {
   const { category } = req.query
   try {
-    let searchParams = {}
+    let params = {}
     if (category) {
-      searchParams = { category ,
-      order:[["id","DESC"]]
-      }
+     params = {
+        searchParams: {category},
+        limit: req.limit,
+        offset: req.skip,
+        order:[["id","DESC"]]
+      }    
     }
-    const GetForm = await BaseRepo.baseList(form, searchParams );
+    const GetForm = await BaseRepo.baseList(form, params);
     res.data = GetForm;
     return next();
   } catch (err) {
