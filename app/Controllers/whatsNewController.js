@@ -37,11 +37,13 @@ async function updateWhateNew(req, res, next) {
   }
 }
 
+
 async function listWhateNew(req, res, next) {
   const params = {
     searchParams: {},
     limit: req.limit,
-    offset: req.skip
+    offset: req.skip,
+    order:"DESC"
   }
   try {
     const whateNews = await BaseRepo.baseList(whatsNew, params);
