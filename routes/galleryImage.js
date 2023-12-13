@@ -11,7 +11,7 @@ router.get('/web', galleryImageController.listGalleryImagesAccordingToWebsite);
 router.delete('/:id',auth(1),galleryImageController.removeGalleryImages);
 
 // This web service is for deleteting a group of images 
-router.delete('/:groupName',auth(1),galleryImageController.removeImageGroup);
+router.delete('/group-delete/:groupName',auth(1),galleryImageController.removeImageGroup);
 
 
 module.exports = router;
