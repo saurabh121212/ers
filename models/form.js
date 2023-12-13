@@ -1,6 +1,5 @@
 'use strict'
 
-  
 module.exports = (sequelize, DataTypes) => {
     const formModel = sequelize.define('form', {
         id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},

@@ -6,7 +6,8 @@ module.exports = {
   addGalleryImages,
   listGalleryImages,
   removeGalleryImages,
-  listGalleryImagesAccordingToWebsite
+  listGalleryImagesAccordingToWebsite,
+  removeImageGroup
 }
 
 //create
@@ -90,6 +91,25 @@ async function removeGalleryImages(req, res, next) {
     return next(err);
   }
 }
+
+
+
+//delete image group 
+async function removeImageGroup(req, res, next) {
+  if (!req.params.groupName)
+    return next({ message: "Invalid or missing group Name", status: 400 });
+  try {
+    //check if project exist
+    const galleryImg = await BaseRepo.baseDelete(galleryImages, { groupName: req.params.groupName });
+    if (!galleryImg) return next({ message: "No gallery image found", status: 400 });
+
+    res.data = { message: "gallery images removed successfully", status: 200 };
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}
+
 
 
 // var groupBy = async function (galleryImgList, key) {
