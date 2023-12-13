@@ -1,4 +1,4 @@
-const { menuServices } = require('models')
+const { menuServices , galleryImages , news , videos} = require('models')
 const BaseRepo = require('app/Repositories/BaseRepository');
 
 module.exports = {
@@ -82,8 +82,9 @@ async function updateSubMenu(req, res, next) {
 
       const params = {
         searchParams: {},
-        limit: req.limit,
-        offset: req.skip
+        limit: 5,
+        offset: req.skip,
+        order: DESC
       }
       try {
         const galleryImagesData = await BaseRepo.baseList(galleryImages, params);
