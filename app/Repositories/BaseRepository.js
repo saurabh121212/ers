@@ -1,5 +1,7 @@
-const Sequelize = require('sequelize');
+const {Sequelize, QueryTypes}= require('sequelize');
 const Op = Sequelize.Op;
+const db = require('../../models/index');
+
 
 module.exports = {
     baseCreate: create,
@@ -12,6 +14,7 @@ module.exports = {
     baseCount: count,
     baseFindById: findById,
     baseFindByEmail: findByEmail,
+    baseformDataForMenu:formDataForMenu
 };
 
 function create(modal, data) {
@@ -138,4 +141,20 @@ function deleteEntry(modal, searchParams) {
 function baseRestore(modal, searchParams) {
     return modal.restore({ where: searchParams });
 }
+
+
+async function formDataForMenu(modal, searchParams) {
+    let formData = await db.sequelize.query(
+        `SELECT *
+        FROM (
+            SELECT 
+                ers_db.forms.*,
+                ROW_NUMBER() OVER (PARTITION BY category ORDER BY id DESC) as row_num
+            FROM ers_db.forms
+        ) AS ranked_records
+        WHERE row_num <= 5`,
+        { type: QueryTypes.SELECT });
+        return formData;
+}
+
 
