@@ -5,7 +5,8 @@ module.exports = {
     addSubMenu,
     listSubMenu,
     updateSubMenu,
-    removeSubMenu
+    removeSubMenu,
+    listSubMenuFormsAndMedia
   }
 
 
@@ -72,3 +73,36 @@ async function updateSubMenu(req, res, next) {
       return next(err);
     }
   }
+
+
+    // List
+    async function listSubMenuFormsAndMedia(req, res, next) {
+
+      let allData = {}
+
+      const params = {
+        searchParams: {},
+        limit: req.limit,
+        offset: req.skip
+      }
+      try {
+        const galleryImagesData = await BaseRepo.baseList(galleryImages, params);
+
+        const newsData = await BaseRepo.baseList(news, params);
+
+        const videosData = await BaseRepo.baseList(videos, params);
+        
+        allData = {galleryImagesData , newsData , videosData}
+
+        console.log("galleryImagesData ", galleryImagesData)
+        console.log("newsData ", newsData)
+        console.log("videosData ", videosData)
+
+        console.log("All Data ", allData);
+
+        res.data = allData;
+        return next();
+      } catch (err) {
+        return next(err);
+      }
+    }

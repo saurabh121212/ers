@@ -9,4 +9,8 @@ router.get('/', auth(1),menuServicesController.listSubMenu);
 router.put('/:id', auth(1),menuServicesController.updateSubMenu);
 router.delete('/:id',auth(1),menuServicesController.removeSubMenu);
 
+
+router.get('/web', auth(1),menuServicesController.listSubMenuFormsAndMedia);
+
+
 module.exports = router;
