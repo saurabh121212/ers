@@ -79,13 +79,14 @@ async function updateSubMenu(req, res, next) {
     async function listSubMenuFormsAndMedia(req, res, next) {
 
       let allData = {}
-
+      
       const params = {
         searchParams: {},
         limit: 5,
         offset: req.skip,
         order:[["id","DESC"]]
       }
+      
       try {
         const galleryImagesData = await BaseRepo.baseList(galleryImages, params);
         const newsData = await BaseRepo.baseList(news, params);
@@ -93,12 +94,11 @@ async function updateSubMenu(req, res, next) {
 
         const formData = await BaseRepo.baseformDataForMenu(form, params);
 
-
-        console.log("galleryImagesData ", galleryImagesData)
-        console.log("newsData ", newsData)
-        console.log("videosData ", videosData)
-        console.log("formData ", formData)
-        console.log("All Data ", allData);
+        // console.log("galleryImagesData ", galleryImagesData)
+        // console.log("newsData ", newsData)
+        // console.log("videosData ", videosData)
+        // console.log("formData ", formData)
+        // console.log("All Data ", allData);
 
         allData = {galleryImagesData , newsData , videosData ,formData}
 
@@ -107,4 +107,4 @@ async function updateSubMenu(req, res, next) {
       } catch (err) {
         return next(err);
       }
-    }
+  }

@@ -68,7 +68,8 @@ async function listGalleryImagesAccordingToWebsite(req, res, next) {
       params.searchParams.groupName = groupName;
     }
     const galleryImgList = await BaseRepo.baseList(galleryImages, params);
-    let data = await transformData(galleryImgList, 'groupName')
+    // let data = await transformData(galleryImgList, 'groupName')
+    let data = await convertJsonArrayInsideArray(galleryImgList) 
     res.data = data;
     return next();
   } catch (err) {
@@ -134,28 +135,28 @@ function transformData(galleryImgList) {
   let groups = {};
 
   let input = [];
-   // This is just to get acctual list
-   for (let i = 0; i < galleryImgList.length; i++) {
+  // This is just to get acctual list
+  for (let i = 0; i < galleryImgList.length; i++) {
     input.push(galleryImgList[i].dataValues);
   }
 
   // Iterate over data
   for (let item of input) {
-      let groupKey = item.groupName;
+    let groupKey = item.groupName;
 
-      if (groups[groupKey]) {
-          // Append the URL to the existing group's URLs
-          groups[groupKey].url.push(item.url);
-      } else {
-          // Deep clone the object and assign a new array with the URL
-          groups[groupKey] = JSON.parse(JSON.stringify(item));
-          groups[groupKey].url = [item.url];
-      }
+    if (groups[groupKey]) {
+      // Append the URL to the existing group's URLs
+      groups[groupKey].url.push(item.url);
+    } else {
+      // Deep clone the object and assign a new array with the URL
+      groups[groupKey] = JSON.parse(JSON.stringify(item));
+      groups[groupKey].url = [item.url];
+    }
   }
 
   // Convert URL arrays into space-separated strings
   for (let key in groups) {
-      groups[key].url = groups[key].url.join(' ');
+    groups[key].url = groups[key].url.join(' ');
   }
 
   return groups;
@@ -164,4 +165,44 @@ function transformData(galleryImgList) {
   //     success: input.success,
   //     data: groups
   // };
+}
+
+
+async function convertJsonArrayInsideArray(inputJsonOne) {
+
+  const inputJson = [];
+  for (let i = 0; i < inputJsonOne.length; i++) {
+    inputJson.push(inputJsonOne[i].dataValues);
+  }
+
+  //console.log("inside ",inputJson);
+  const outputData = {};
+  inputJson.forEach(item => {
+    const groupName = item.groupName;
+
+    if (!outputData[groupName]) {
+      outputData[groupName] = {
+        groupName: groupName,
+        imagegroup: []
+      };
+    }
+
+    const image_data = {
+      id: item.id,
+      imageName: item.imageName,
+      url: item.url,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt
+    };
+
+    outputData[groupName].imagegroup.push(image_data);
+  });
+
+  const outputJson = {
+    success: inputJson.success,
+    data: Object.values(outputData)
+  };
+
+  console.log("final json ", JSON.stringify(outputJson, null, 2));
+  return outputJson;
 }
