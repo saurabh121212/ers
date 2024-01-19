@@ -3,7 +3,7 @@
 const multer = require('multer');
 
 class Multer{
-    constructor(fileTypes, maxSize = 15, dest="/"){
+    constructor(fileTypes, maxSize = 25, dest="/"){
         this.maxSize = maxSize * 1024 * 1024;
         this.fileTypes = fileTypes;
         this.dest = dest;
