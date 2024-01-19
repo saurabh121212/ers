@@ -13,7 +13,7 @@ module.exports = {
 
 //create
 async function addNews(req, res, next) {
-    const { newsName, uploadDate, description, url } = req.body;
+    const { newsName, uploadDate, description, url , author_name } = req.body;
     console.log(news)
     if (!newsName) {
       return next({ message: "Missing news name", status: 400 });
@@ -22,7 +22,7 @@ async function addNews(req, res, next) {
       return next({ message: "Missing url", status: 400 });
     }
     try {
-      const  inNews= await BaseRepo.baseCreate(news, { newsName, uploadDate, description, url });
+      const  inNews= await BaseRepo.baseCreate(news, { newsName, uploadDate, description, url , author_name});
       res.data = inNews;
       return next();
     } catch (err) {
