@@ -46,8 +46,10 @@ async function listCsr(req, res, next) {
   const params = {
     searchParams: {},
     limit: req.limit,
-    offset: req.skip
+    offset: req.skip,
+    order:[["id","DESC"]]
   }
+  
   try {
     const csrs = await BaseRepo.baseList(corporateResponsibility, params);
     res.data = csrs;
