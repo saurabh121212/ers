@@ -67,7 +67,8 @@ async function addPublication(req, res, next) {
     const params = {
       searchParams: {},
       limit: req.limit,
-      offset: req.skip
+      offset: req.skip,
+      order:[["id","DESC"]]
   }
     try {
         const publicationsValues = await BaseRepo.baseList(publications, params);
