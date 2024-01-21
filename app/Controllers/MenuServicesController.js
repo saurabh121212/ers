@@ -84,11 +84,19 @@ async function updateSubMenu(req, res, next) {
         searchParams: {},
         limit: 5,
         offset: req.skip,
-        order:[["id","DESC"]]
+        order:[["id","DESC"]],
       }
+      const params2 = {
+        searchParams: {},
+        limit: 5,
+        offset: req.skip,
+        order:[["id","DESC"]],
+        distinct:"groupName",
+      }
+
       
       try {
-        const galleryImagesData = await BaseRepo.baseList(galleryImages, params);
+        const galleryImagesData = await BaseRepo.baseList(galleryImages, params2);
         const newsData = await BaseRepo.baseList(news, params);
         const videosData = await BaseRepo.baseList(videos, params);
 
