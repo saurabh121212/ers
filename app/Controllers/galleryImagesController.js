@@ -45,7 +45,6 @@ async function listGalleryImages(req, res, next) {
   const { groupName } = req.query;
   const params = {
     searchParams: {},
-    order:[["id","DESC"]]
 
   }
   try {
@@ -64,7 +63,6 @@ async function listGalleryImagesAccordingToWebsite(req, res, next) {
   const { groupName } = req.query;
   const params = {
     searchParams: {},
-    order:[["id","DESC"]]
   }
   try {
     if (groupName) {
