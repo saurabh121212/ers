@@ -88,8 +88,8 @@ async function updateSubMenu(req, res, next) {
       }
       const params2 = {
         searchParams: {},
-        //limit: 5,
-        //offset: req.skip,
+        limit: 5,
+        offset: req.skip,
         order:[["id","DESC"]],
         distinct:"groupName",
       }
