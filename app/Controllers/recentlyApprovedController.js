@@ -78,7 +78,8 @@ async function addRecetlyApproved(req, res, next) {
     const params = {
       searchParams: {},
       limit: req.limit,
-      offset: req.skip
+      offset: req.skip,
+      order:[["id","DESC"]],
   }
     try {
         const recetlyApproveds = await BaseRepo.baseList(recetlyApproved, params);
