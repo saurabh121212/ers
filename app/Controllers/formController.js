@@ -24,7 +24,7 @@ async function GetFormDetail(req, res, next) {
     let params = {}
     //if (category) {
      params = {
-        searchParams: {category},
+       // searchParams: {category},
         limit: req.limit,
         offset: req.skip,
         order:[["id","DESC"]]
