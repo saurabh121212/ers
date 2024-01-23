@@ -36,6 +36,8 @@ async function addVideo(req, res, next) {
 async function listVideos(req, res, next) {
   const params = {
     searchParams: {},
+    order:[["id","DESC"]]
+    
   }
   try {
     const videoList = await BaseRepo.baseList(videos, params);
@@ -49,6 +51,8 @@ async function listVideos(req, res, next) {
 async function listVideosAccordingToWebsite(req, res, next) {
   const params = {
     searchParams: {},
+    order:[["id","DESC"]]
+    
   }
   try {
     const videoList = await BaseRepo.baseList(videos, params);
