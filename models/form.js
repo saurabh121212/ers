@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     const formModel = sequelize.define('form', {
         id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         formName: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(300),
             allowNull: false
         },
         category: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(200),
             allowNull: false,
         },
         fileSize:{
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         fileUrl:{
-            type:DataTypes.STRING(800),
+            type:DataTypes.STRING(500),
             allowNull:false,
        },
 

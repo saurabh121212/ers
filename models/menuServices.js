@@ -1,21 +1,17 @@
 'use strict';
 
+
 module.exports = (sequelize, DataTypes) => {
     const Model = sequelize.define('menuServices', {
-        id: {
-            type: DataTypes.BIGINT, 
-            allowNull: false, 
-            primaryKey: true, 
-            autoIncrement: true
-        },
+        id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         menuId: {
             type: DataTypes.INTEGER,
         },
         menuName: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(300),
         },
         sumMenuName: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(300),
         },
     },
     {

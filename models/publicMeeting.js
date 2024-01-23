@@ -3,8 +3,7 @@
 module.exports = (sequelize, DataTypes) => {
     const publicMeetingModel = sequelize.define('publicmeeting', {
         id: 
-        { 
-            type: DataTypes.BIGINT, 
+        { type: DataTypes.BIGINT, 
             allowNull: false, 
             primaryKey: true, 
             autoIncrement: true 

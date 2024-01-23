@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT('medium'),
         },
         author_name: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(400),
         },
         url: {
             type: DataTypes.TEXT,

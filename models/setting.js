@@ -2,30 +2,30 @@
 module.exports = (sequelize, DataTypes) => {
     const SettingModel = sequelize.define('setting', {
         facebook: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: true
         },
         instagram:{
-              type:DataTypes.STRING(200),
+              type:DataTypes.STRING(500),
               allowNull:true,
         },
         linkedIn:{
-             type:DataTypes.STRING(200),
+             type:DataTypes.STRING(500),
              allowNull:true,
 
         },
         youtube: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: true
         },
 
         twitter: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: true
         },
 
         email: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: true
         },
 
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         
         contactAddress: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: true
         },
         contactEmail: {

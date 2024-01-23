@@ -7,14 +7,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
         },
         email: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.TEXT,
         },
         phone_number: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
         feedbacktype: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         feedback_description: {
