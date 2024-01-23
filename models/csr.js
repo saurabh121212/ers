@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: DataTypes.STRING(200)
+            type: DataTypes.STRING(100)
            // unique: true,
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(600),
         },
         uploadDate: {
             type: DataTypes.DATE,

@@ -19,17 +19,17 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         type: {
-            type: DataTypes.STRING(300),
+            type: DataTypes.STRING(200),
             enum: RECENTLY_APPROVED_TYPES,
             allowNull: false
         },
         name: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(200),
             allowNull: false
            
         },
         documentName: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(200),
             allowNull: false
             
         },

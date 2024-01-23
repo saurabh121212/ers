@@ -15,20 +15,20 @@ module.exports = (sequelize, DataTypes) => {
     const recetlyApprovedModel = sequelize.define('recetlyApproved', {
         id: {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true},
         type: {
-            type: DataTypes.STRING(300),
+            type: DataTypes.STRING(200),
             allowNull: false
         },
         name: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(200),
             allowNull: false
            
         },
         description: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(600),
             
         },
         documentName: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(200),
             allowNull: false
             
         },

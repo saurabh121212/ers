@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(600),
         },
         documentName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(200),
             allowNull: false
         },
         coverPhoto: {

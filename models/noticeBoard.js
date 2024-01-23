@@ -19,17 +19,17 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: DataTypes.STRING(300),
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(600),
         },
         date: {
             type: DataTypes.DATE,
         },
         notice: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(600),
         },
         documentName: {
             type: DataTypes.STRING(300),

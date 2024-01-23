@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true 
         },
         tenderName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(200),
             allowNull: false
         },
         deadline: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         reference: {
-            type: DataTypes.STRING(300),
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         documentUrl: {
