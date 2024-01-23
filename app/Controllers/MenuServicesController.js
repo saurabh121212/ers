@@ -77,7 +77,6 @@ async function updateSubMenu(req, res, next) {
 
     // List
     async function listSubMenuFormsAndMedia(req, res, next) {
-
       let allData = {}
       
       const params = {
@@ -93,7 +92,6 @@ async function updateSubMenu(req, res, next) {
         order:[["id","DESC"]],
         distinct:"groupName",
       }
-
       
       try {
         const galleryImagesData = await BaseRepo.baseList(galleryImages, params2);
@@ -102,7 +100,7 @@ async function updateSubMenu(req, res, next) {
 
         const formData = await BaseRepo.baseformDataForMenu(form, params);
 
-        // console.log("galleryImagesData ", galleryImagesData)
+         console.log("galleryImagesData ", galleryImagesData.rows);
         // console.log("newsData ", newsData)
         // console.log("videosData ", videosData)
         // console.log("formData ", formData)

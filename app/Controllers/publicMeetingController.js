@@ -80,7 +80,9 @@ async function listPublicMeeting(req, res, next) {
   const params = {
     searchParams: {},
     limit: req.limit,
-    offset: req.skip
+    offset: req.skip,
+    order:[["id","DESC"]],
+
   }
   try {
     const publicMeetings = await BaseRepo.baseList(publicmeeting, params);

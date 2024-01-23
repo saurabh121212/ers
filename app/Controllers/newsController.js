@@ -49,6 +49,9 @@ async function updateNews(req, res, next) {
   if (req.body.description) {
     updateData.description = req.body.description;
   }
+  if (req.body.author_name) {
+    updateData.author_name = req.body.author_name;
+  }
   if (req.body.url) {
     updateData.url = req.body.url;
   }
@@ -80,13 +83,12 @@ async function singleNewsDetailById(req, res, next) {
   }
 }
 
-
-
 async function listNews(req, res, next) {
   const params = {
     searchParams: {},
     limit: req.limit,
-    offset: req.skip
+    offset: req.skip,
+    order:[["id","DESC"]],
   }
   try {
     const inNews = await BaseRepo.baseList(news, params);

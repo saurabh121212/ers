@@ -28,7 +28,8 @@ async function addTextItemCode(req, res, next) {
     const params = {
       searchParams: {},
       limit: req.limit,
-      offset: req.skip
+      offset: req.skip,
+      order:[["id","DESC"]],
     }
     try {
       const textItemCode = await BaseRepo.baseList(textitemcode, params);

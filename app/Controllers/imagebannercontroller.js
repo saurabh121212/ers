@@ -14,12 +14,11 @@ module.exports = {
 
 //create
 async function createimagebanner(req, res, next) {
-  const { imageName, link, description, imageurl, uploadDate } = req.body;
+  const { imageName, link, imageurl, uploadDate } = req.body;
   console.log(bannerImages)
   if (!imageName) {
     return next({ message: "Missing imagename", status: 400 });
   }
-
   if (!link) {
     return next({ message: "Missing link", status: 400 });
   }
@@ -41,8 +40,13 @@ async function createimagebanner(req, res, next) {
 }
 
 async function getAllImageBanners(req, res, next) {
+  const params = {
+    searchParams: {},
+    order:[["id","DESC"]]
+    
+  }
   try {
-    const getimages = await BaseRepo.baseList(bannerImages, {});
+    const getimages = await BaseRepo.baseList(bannerImages,params);
     res.data = getimages;
     return next();
   } catch (err) {

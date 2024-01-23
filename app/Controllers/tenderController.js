@@ -64,7 +64,8 @@ async function addTender(req, res, next) {
     const params = {
       searchParams: {},
       limit: req.limit,
-      offset: req.skip
+      offset: req.skip,
+      order:[["id","DESC"]],
   }
     try {
         const tendersValues = await BaseRepo.baseList(tenders, params);

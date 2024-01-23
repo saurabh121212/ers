@@ -7,7 +7,8 @@ module.exports = {
   listGalleryImages,
   removeGalleryImages,
   listGalleryImagesAccordingToWebsite,
-  removeImageGroup
+  removeImageGroup,
+  UpdateGalleryImages
 }
 
 //create
@@ -60,12 +61,30 @@ async function listGalleryImages(req, res, next) {
   }
 }
 
+async function UpdateGalleryImages(req, res, next) {
+  const { groupName } = req.params;
+  console.log("Group Name", groupName)
+  const body = req.body;
+  if (!groupName) {
+    return next({ message: "Missing  Group Name", status: 400 });
+  }
+  try {
+    const UpdateForm = await BaseRepo.baseUpdate(galleryImages, { groupName }, body);
+    res.data = { message: "successfully updated" };
+    return next();
+  } catch (err) {
+    console.log(err);
+    return next(err);
+  }
+}
+
+
 async function listGalleryImagesAccordingToWebsite(req, res, next) {
   const { groupName } = req.query;
   const params = {
     searchParams: {},
     order:[["id","DESC"]]
-
+    
   }
   try {
     if (groupName) {

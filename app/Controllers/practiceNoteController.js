@@ -70,7 +70,8 @@ async function addpracticeNote(req, res, next) {
     const params = {
       searchParams: {},
       limit: req.limit,
-      offset: req.skip
+      offset: req.skip,
+      
   }
     try {
         const practicNotes = await BaseRepo.baseList(practiceNote, params);
