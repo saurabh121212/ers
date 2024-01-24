@@ -14,7 +14,7 @@ module.exports = {
 
 //create
 async function createimagebanner(req, res, next) {
-  const { imageName, link, imageurl, uploadDate } = req.body;
+  const { imageName, link, description, imageurl, uploadDate } = req.body;
   console.log(bannerImages)
   if (!imageName) {
     return next({ message: "Missing imagename", status: 400 });
@@ -42,8 +42,8 @@ async function createimagebanner(req, res, next) {
 async function getAllImageBanners(req, res, next) {
   const params = {
     searchParams: {},
-    order:[["id","DESC"]]
-    
+    order:[["id","DESC"]],
+    limit: 5,
   }
   try {
     const getimages = await BaseRepo.baseList(bannerImages,params);

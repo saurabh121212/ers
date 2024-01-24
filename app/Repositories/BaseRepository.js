@@ -14,7 +14,8 @@ module.exports = {
     baseCount: count,
     baseFindById: findById,
     baseFindByEmail: findByEmail,
-    baseformDataForMenu:formDataForMenu
+    baseformDataForMenu:formDataForMenu,
+    baseGalleryList:GalleryList
 };
 
 function create(modal, data) {
@@ -68,9 +69,32 @@ function detail(modal, params) {
     return modal.findOne(query);
 }
 
+
+function GalleryList(modal, params) {
+    const query = {
+        where: params.searchParams
+    };
+    if (params.hasOwnProperty('attributes')) {
+        query['attributes'] = params.attributes;
+    }
+    if (params.hasOwnProperty('order')) {
+        query['order'] = params.order;
+    }
+    if (params.hasOwnProperty('distinct')) {
+        query['distinct'] = params.distinct;
+    }
+    if (params.hasOwnProperty('group')) {
+        query['group'] = params.group;
+    }
+    return modal.findAll(query);
+}
+
+
+
 function list(modal, params) {
     let withPagination = false;
 
+    
     const query = {
         where: params.searchParams || params.where || {}
     };
