@@ -12,12 +12,12 @@ module.exports = {
 
 //create
 async function addTender(req, res, next) {
-    const {tenderName,deadline,publishedDate, reference, documentUrl } = req.body;
+    const {tenderName,deadline,publishedDate, reference, documentUrl, documentName } = req.body;
     if (!tenderName) {
         return next({ message: "Missing Tender Name", status: 400 });
       }
     try {
-      const  tendersValues = await BaseRepo.baseCreate(tenders, {tenderName, deadline, publishedDate, reference, documentUrl});
+      const  tendersValues = await BaseRepo.baseCreate(tenders, {tenderName, deadline, publishedDate, reference, documentUrl,documentName});
       res.data = tendersValues;
       return next();
     } catch (err) {

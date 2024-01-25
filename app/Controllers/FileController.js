@@ -19,11 +19,14 @@ async function uploadFile(req, res, next) {
   //   console.log('existing file deleted');
   // }
   const size = req.file.size / 1024;
-  console.log(req.file);
+  console.log("Testing Text ",req.file);
+  // console.log("file Name ", req.file.filename);
+  // console.log("file Path ",req.file.path)
   res.data = {
     message: 'successfully uploaded',
     url: _config.APP_URL + req.file.path.substring(7),
     size: size.toFixed(0) + 'kb',
+    originalFilename:req.file.originalname,
   };
   return next();
 };
