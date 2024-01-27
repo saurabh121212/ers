@@ -175,8 +175,9 @@ async function formDataForMenu(modal, searchParams) {
                 ers_db.forms.*,
                 ROW_NUMBER() OVER (PARTITION BY category ORDER BY id DESC) as row_num
             FROM ers_db.forms
+            WHERE deletedAt IS NULL
         ) AS ranked_records
-        WHERE row_num <= 5 AND deletedAt IS NULL`,
+        WHERE row_num <= 5;`,
         { type: QueryTypes.SELECT });
         return formData;
 }
