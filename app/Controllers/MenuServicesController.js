@@ -100,10 +100,10 @@ async function updateSubMenu(req, res, next) {
 
         const formData = await BaseRepo.baseformDataForMenu(form, params);
 
-         console.log("galleryImagesData ", galleryImagesData.rows);
+        // console.log("galleryImagesData ", galleryImagesData.rows);
         // console.log("newsData ", newsData)
         // console.log("videosData ", videosData)
-        // console.log("formData ", formData)
+         console.log("formData ", formData)
         // console.log("All Data ", allData);
 
         allData = {galleryImagesData , newsData , videosData ,formData}
