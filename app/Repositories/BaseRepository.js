@@ -177,7 +177,7 @@ async function formDataForMenu(modal, searchParams) {
             FROM ers_db.forms
             WHERE deletedAt IS NULL
         ) AS ranked_records
-        WHERE row_num <= 5;`,
+        WHERE row_num <= 7;`,
         { type: QueryTypes.SELECT });
         return formData;
 }

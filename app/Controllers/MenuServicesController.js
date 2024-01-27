@@ -97,13 +97,12 @@ async function updateSubMenu(req, res, next) {
         const galleryImagesData = await BaseRepo.baseList(galleryImages, params2);
         const newsData = await BaseRepo.baseList(news, params);
         const videosData = await BaseRepo.baseList(videos, params);
-
         const formData = await BaseRepo.baseformDataForMenu(form, params);
 
         // console.log("galleryImagesData ", galleryImagesData.rows);
         // console.log("newsData ", newsData)
         // console.log("videosData ", videosData)
-         console.log("formData ", formData)
+        //console.log("formData ", formData)
         // console.log("All Data ", allData);
 
         allData = {galleryImagesData , newsData , videosData ,formData}
