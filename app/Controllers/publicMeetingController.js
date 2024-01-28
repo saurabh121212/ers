@@ -11,7 +11,7 @@ module.exports = {
 
 //create
 async function addPublicMeeting(req, res, next) {
-    const { publicMeetingName, uploadDate, description, url } = req.body;
+    const { publicMeetingName, uploadDate, description, url,author_name} = req.body;
     if (!publicMeetingName) {
       return next({ message: "Missing Public Meeting name", status: 400 });
     }
@@ -19,7 +19,7 @@ async function addPublicMeeting(req, res, next) {
       return next({ message: "Missing url", status: 400 });
     }
     try {
-      const  publicMeetings= await BaseRepo.baseCreate(publicmeeting, { publicMeetingName, uploadDate, description, url });
+      const  publicMeetings= await BaseRepo.baseCreate(publicmeeting, { publicMeetingName, uploadDate, description, url,author_name });
       res.data = publicMeetings;
       return next();
     } catch (err) {
@@ -48,6 +48,9 @@ async function updatePublicMeeting(req, res, next) {
   }
   if (req.body.url) {
     updateData.url = req.body.url;
+  }
+  if (req.body.author_name) {
+    updateData.url = req.body.author_name;
   }
 
   try {

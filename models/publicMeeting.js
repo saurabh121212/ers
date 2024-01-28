@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.TEXT('medium'),
         },
+        author_name: {
+            type: DataTypes.STRING(200)
+        },
         url: {
             type: DataTypes.TEXT,
             allowNull: false,
