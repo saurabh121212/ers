@@ -34,6 +34,8 @@ const userFeedbackRouter = require('./userFeedback')
 const texItemCodesRouter = require('./textIteamCode')
 const FAQRouter = require('./faq')
 const menuServicesRouter = require('./menuService')
+const pagesDataMobileRouter = require('./pagesDataMobile')
+
 
 
 
@@ -71,6 +73,8 @@ router.use('/tender',tenderRouter)
 router.use('/practiceNote',practiceNoteRouter)
 router.use('/publicMeeting',publicMeetingRouter)
 router.use('/aboutus',aboutusRouter)
+router.use('/pagesDataMobile',pagesDataMobileRouter)
+
 
 
 module.exports = router;
