@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         pageName: {
             type: DataTypes.STRING(200),
         },
+        pageCode: {
+            type: DataTypes.INTEGER,
+        },
+        pageUpdateStatus: {
+            type: DataTypes.INTEGER,
+        },
         pageData: {
             type: DataTypes.TEXT('medium'),
         },

@@ -5,14 +5,16 @@ module.exports = {
     addPageData,
     listPageData,
     removePageData,
-    updatePageData
+    updatePageData,
+
 }
 
 //create
 async function addPageData(req, res, next) {
-    const {mainMenu,subMenu,pageName,pageData,url } = req.body;
+    const {mainMenu,subMenu,pageName,pageData,url,pageCode} = req.body;
+    pageUpdateStatus = 0;
     try {
-      const  pagesDataMobiles= await BaseRepo.baseCreate(pagesDataMobile, {mainMenu,subMenu,pageName, pageData, url});
+      const  pagesDataMobiles= await BaseRepo.baseCreate(pagesDataMobile, {mainMenu,subMenu,pageName, pageData, url,pageCode,pageUpdateStatus});
       res.data = pagesDataMobiles;
       return next();
     } catch (err) {
@@ -43,6 +45,12 @@ async function addPageData(req, res, next) {
     }
     if (req.body.url) {
       updateData.url = req.body.url;
+    }
+    if (req.body.pageCode) {
+      updateData.pageCode = req.body.pageCode;
+    }
+    if (req.body.pageUpdateStatus) {
+      updateData.pageUpdateStatus = req.body.pageUpdateStatus;
     }
     try {
       await BaseRepo.baseUpdate(pagesDataMobile, { id }, updateData);
