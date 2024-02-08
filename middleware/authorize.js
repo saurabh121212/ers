@@ -10,6 +10,9 @@ module.exports = function (...userTypes) {
       req.user = {
           role: "public"
       }
+      // return res.status(402).json({
+      //   msg: "JWT Token Not Available"
+      // })
     }
     else {
       try {

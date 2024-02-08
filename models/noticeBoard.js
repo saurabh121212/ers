@@ -9,7 +9,6 @@ const isValidUrl = (value) => {
     }
   };
 
-
 module.exports = (sequelize, DataTypes) => {
     const noticeBoardModel = sequelize.define('noticeBoard', {
         id: {

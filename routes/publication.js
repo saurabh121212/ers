@@ -5,7 +5,7 @@ const auth = require("../middleware/authorize")
 // This API is used for Publications tow parts Strategic Plans and Annual Reports
 
 router.post('/',auth(1), publicationController.addPublication);
-router.get('/',auth(1), publicationController.listPublication);
+router.get('/', publicationController.listPublication);
 router.put('/:id',auth(1),publicationController.updatePublication)
 router.delete('/:id',auth(1),publicationController.removePublication);
 

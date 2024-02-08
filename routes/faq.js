@@ -5,7 +5,7 @@ const auth = require("../middleware/authorize")
 
 // This module is use to create the web services for All FAQ Sections. 
 router.post('/',auth(1), FAQController.addFAQ);
-router.get('/',auth(1), FAQController.listFAQ);
+router.get('/', FAQController.listFAQ);
 router.put('/:id',auth(1),FAQController.updateFAQ);
 router.delete('/:id',auth(1),FAQController.removeFAQ);
 

@@ -14,6 +14,6 @@ module.exports = async function (eventEmitter) {
         eventEmitter.emit('db-connection-established');
     } catch (err) {
         // eslint-disable-next-line no-undef
-        console.error('Unable to connect to SQL database:', _config[_config.node_env].database, err);
+         console.error('Unable to connect to SQL database:', _config[_config.node_env].database, err);
     }
 };

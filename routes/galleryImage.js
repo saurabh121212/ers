@@ -4,7 +4,7 @@ const auth = require("../middleware/authorize")
 
 // This web-service is use for Image Gallery 
 router.post('/',auth(1), galleryImageController.addGalleryImages);
-router.get('/', auth(1),galleryImageController.listGalleryImages);
+router.get('/',galleryImageController.listGalleryImages);
 
 // // This web service is use to update the group images. 
 // router.put('/:groupName', auth(1), galleryImageController.UpdateGalleryImages);
