@@ -25,7 +25,9 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+const APP_IP =  process.env.APP_IP;
+console.log("This is testing ", APP_IP);
+server.listen(port,APP_IP);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -88,6 +90,6 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 
-  console.log('Server listenning on port:', addr.port);
+  console.log('Server listenning on port:', addr.port ," dsdsds ",addr);
 
 }
