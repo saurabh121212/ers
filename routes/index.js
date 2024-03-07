@@ -35,6 +35,9 @@ const texItemCodesRouter = require('./textIteamCode')
 const FAQRouter = require('./faq')
 const menuServicesRouter = require('./menuService')
 const pagesDataMobileRouter = require('./pagesDataMobile')
+const ourResourceBusinessRouter = require('./ourResourceBusiness')
+const ourResourceTravellingRouter = require('./ourResourceTravelling')
+
 
 
 
@@ -75,6 +78,8 @@ router.use('/publicMeeting',publicMeetingRouter)
 router.use('/aboutus',aboutusRouter)
 router.use('/pagesDataMobile',pagesDataMobileRouter)
 
+router.use('/ourResourceBusiness',ourResourceBusinessRouter)
+router.use('/ourResourceTravelling',ourResourceTravellingRouter)
 
 
 module.exports = router;
