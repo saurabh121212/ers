@@ -25,10 +25,8 @@ const SendMail = async function (username, to, subject, body, public_msg)
   else
   {
     bodyText = `Hello there,
-
-`+ username + ` has invited you to join meoh.
-
-Use the following Link to download the app and create an account: `+ CONFIG.app_download
+    `+ username + ` has invited you to join meoh.
+    Use the following Link to download the app and create an account: `+ CONFIG.app_download
   }
 
   if (public_msg != null)

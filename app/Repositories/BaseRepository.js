@@ -1,4 +1,4 @@
-const {Sequelize, QueryTypes}= require('sequelize');
+const {Sequelize, QueryTypes, sequelize}= require('sequelize');
 const Op = Sequelize.Op;
 const db = require('../../models/index');
 
@@ -15,7 +15,9 @@ module.exports = {
     baseFindById: findById,
     baseFindByEmail: findByEmail,
     baseformDataForMenu:formDataForMenu,
-    baseGalleryList:GalleryList
+    baseGalleryList:GalleryList,
+    baseFindAllSearch:findAllSearch
+
 };
 
 function create(modal, data) {
@@ -166,6 +168,35 @@ function baseRestore(modal, searchParams) {
     return modal.restore({ where: searchParams });
 }
 
+
+
+async function findAllSearch(modal, searchParams) {
+    console.log("searchParams ",searchParams);
+    return await modal.findAll({
+        attributes: [
+            'id',
+            'mainMenu',
+            'subMenu',
+            'pageName',
+            'pageCode',            
+            [db.sequelize.literal(`SUBSTRING(pageData, LOCATE('${searchParams}', pageData), 50)`), 'search_result'],
+          ],
+        where: {
+            [Op.or]: [
+                {
+                  pageData: {
+                    [Op.like]: `%${searchParams}%`,
+                  },
+                },
+                {
+                  pageName: {
+                    [Op.like]: `%${searchParams}%`,
+                  },
+                },
+              ]
+          },
+    });
+}
 
 async function formDataForMenu(modal, searchParams) {
     let formData = await db.sequelize.query(

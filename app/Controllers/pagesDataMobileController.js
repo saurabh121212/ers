@@ -6,7 +6,7 @@ module.exports = {
     listPageData,
     removePageData,
     updatePageData,
-
+    listSearchData
 }
 
 //create
@@ -91,3 +91,23 @@ async function removePageData(req, res, next) {
       return next(err);
     }
   }
+
+
+
+  async function listSearchData(req, res, next) {
+    if (!req.params.key)
+      return next({ message: "Invalid or missing key", status: 400 });
+    const params = {
+      searchParams: {"key":req.params.key},
+      // limit: req.limit,
+      // offset: req.skip,
+      // order:[["id","DESC"]],
+  }
+    try {
+        const pagesDataMobiles = await BaseRepo.baseFindAllSearch(pagesDataMobile, req.params.key);
+        res.data = pagesDataMobiles;
+        return next();
+    } catch (err) {
+        return next(err);
+    }
+}
