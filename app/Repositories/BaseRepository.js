@@ -180,7 +180,7 @@ async function findAllSearch(modal, searchParams) {
             'pageName',
             'pageCode',
             'url',            
-            [db.sequelize.literal(`SUBSTRING(pageData, LOCATE('${searchParams}', pageData), 50)`), 'search_result'],
+            [db.sequelize.literal(`SUBSTRING(pageData, LOCATE('${searchParams}', pageData), 400)`), 'search_result'],
           ],
         where: {
             [Op.or]: [
