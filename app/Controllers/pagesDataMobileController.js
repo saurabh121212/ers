@@ -95,16 +95,17 @@ async function removePageData(req, res, next) {
 
 
   async function listSearchData(req, res, next) {
-    if (!req.params.key)
+    console.log("test 2 ",req.query.key);
+    if (!req.query.key)
       return next({ message: "Invalid or missing key", status: 400 });
     const params = {
-      searchParams: {"key":req.params.key},
+      searchParams: {"key":req.query.key},
       // limit: req.limit,
       // offset: req.skip,
       // order:[["id","DESC"]],
   }
     try {
-        const pagesDataMobiles = await BaseRepo.baseFindAllSearch(pagesDataMobile, req.params.key);
+        const pagesDataMobiles = await BaseRepo.baseFindAllSearch(pagesDataMobile, req.query.key);
         res.data = pagesDataMobiles;
         return next();
     } catch (err) {
