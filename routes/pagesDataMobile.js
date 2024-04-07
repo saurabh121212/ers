@@ -10,6 +10,6 @@ router.put('/:id',auth(1),pagesDataMobileController.updatePageData)
 router.delete('/:id',auth(1),pagesDataMobileController.removePageData);
 
 
-router.get('/',pagesDataMobileController.listSearchData);
+router.get('/search',pagesDataMobileController.listSearchData);
 
 module.exports = router;
