@@ -1,0 +1,18 @@
+For Ers backend
+pm2 start api-development.json
+
+For Website 
+pm2 start npm --name "ers-Website" -- start 
+
+For Admin
+pm2 serve build 3001 --spa --name ers-admin
+
+For Chatbot backend  
+pm2 start npm --name "chatbot-backend" -- start 
+
+For Chatbot Frontend  
+pm2 start npm --name "chatbot-frontend" -- start
+
+For chatbot
+pm2 serve /home/saurabh/website/chatbot-front 5500
+

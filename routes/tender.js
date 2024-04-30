@@ -10,5 +10,4 @@ router.put('/:id',auth(1),tenderController.updateTender);
 router.delete('/:id',auth(1),tenderController.removeTender);
 
 
-
 module.exports = router;

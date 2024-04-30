@@ -50,7 +50,7 @@ async function updatePublicMeeting(req, res, next) {
     updateData.url = req.body.url;
   }
   if (req.body.author_name) {
-    updateData.url = req.body.author_name;
+    updateData.author_name = req.body.author_name;
   }
 
   try {
