@@ -1,4 +1,4 @@
-const {pagesDataMobile} = require('models')
+const {pagesDataMobile, pagesDataSearch} = require('models')
 const BaseRepo = require('app/Repositories/BaseRepository');
 
 module.exports = {
@@ -105,7 +105,7 @@ async function removePageData(req, res, next) {
       // order:[["id","DESC"]],
   }
     try {
-        const pagesDataMobiles = await BaseRepo.baseFindAllSearch(pagesDataMobile, req.query.key);
+        const pagesDataMobiles = await BaseRepo.baseFindAllSearch(pagesDataSearch, req.query.key);
         res.data = pagesDataMobiles;
         return next();
     } catch (err) {
