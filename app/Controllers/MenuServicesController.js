@@ -87,17 +87,35 @@ async function updateSubMenu(req, res, next) {
       }
       const params2 = {
         searchParams: {},
-        limit: 5,
+        limit: 500,
         offset: req.skip,
         order:[["id","DESC"]],
         distinct:"groupName",
       }
       
       try {
-        const galleryImagesData = await BaseRepo.baseList(galleryImages, params2);
+        const galleryImagesD = await BaseRepo.baseList(galleryImages, params2);
          const newsData = await BaseRepo.baseList(news, params);
          const videosData = await BaseRepo.baseList(videos, params);
          const formData = await BaseRepo.baseformDataForMenu(form, params);
+
+                  // Create a Set to store unique group names
+          const uniqueGroupNames = new Set();
+          // Array to store filtered rows
+          const filteredRows = [];
+
+          // Filter rows based on unique group names and limit to max five records
+          for (const row of galleryImagesD.rows) {
+              if (!uniqueGroupNames.has(row.groupName) && filteredRows.length < 5) {
+                  uniqueGroupNames.add(row.groupName);
+                  filteredRows.push(row);
+              }
+          }
+
+          // Construct the filtered data object
+          const galleryImagesData = { rows: filteredRows , "count": 50 };
+
+          //console.log(galleryImagesData);
 
         // console.log("galleryImagesData ", galleryImagesData.rows);
         // console.log("newsData ", newsData)
